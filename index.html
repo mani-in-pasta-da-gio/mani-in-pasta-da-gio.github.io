@@ -125,7 +125,7 @@ section{position:relative}.sec{padding:var(--g16) 0}
 /* storia: foto ferma e riquadri che scorrono sopra (spunto Bresca) */
 .story{position:relative}
 .story-bg{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;overflow:hidden;z-index:0}
-.story-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.story-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
 .story-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,13,10,.75),rgba(15,13,10,.25) 60%,rgba(15,13,10,.55)),linear-gradient(180deg,var(--ink),transparent 18%,transparent 82%,var(--ink))}
 .story-cards{position:relative;z-index:1;display:grid;gap:55vh;padding:40vh 0 45vh}
 .card{max-width:520px;background:rgba(15,13,10,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(217,178,90,.25);border-radius:var(--r);padding:var(--g6) var(--g4)}
@@ -196,11 +196,11 @@ section{position:relative}.sec{padding:var(--g16) 0}
 /* galleria a due colonne che scorrono in versi opposti (spunto Malai) */
 .gal{overflow:hidden}
 .gal-head{margin-bottom:var(--g6)}
-.gal-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--g3);align-items:start}
+.gal-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--g3);align-items:start;max-width:880px;margin-inline:auto}
 .gal-col{display:grid;gap:var(--g3);will-change:transform}
 .gal-col.b{margin-top:var(--g12)}
 .gal-col figure{margin:0;position:relative;border-radius:var(--r);overflow:hidden}
-.gal-col img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .8s var(--ease)}
+.gal-col img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .8s var(--ease)}
 @media (hover:hover){.gal-col figure:hover img{transform:scale(1.05)}}
 .cap{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(15,13,10,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:var(--s0);font-weight:500;color:var(--cream)}
 .cap::before{content:"";width:7px;height:7px;border-radius:50%;background:#FFE39A;box-shadow:0 0 6px #FFC94D}
