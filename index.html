@@ -30,7 +30,7 @@
 body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block;background:var(--paper2)}
 a,button,select{-webkit-tap-highlight-color:transparent;touch-action:manipulation}.btn,.close,.burger,.step button,.gal-ctrl button{-webkit-user-select:none;user-select:none}
-.pr,.mtable,.hours,.res b,.step output,.tel b{font-variant-numeric:tabular-nums}a{color:inherit}[hidden]{display:none!important}
+.pr,.mtable,.hours,.step output,.tel b{font-variant-numeric:tabular-nums}a{color:inherit}[hidden]{display:none!important}
 h1,h2,h3,h4{font-family:var(--fd);font-weight:600;line-height:.95;letter-spacing:-.01em;margin:0;text-transform:uppercase;text-wrap:balance}
 p{margin:0 0 var(--g2)}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
@@ -307,7 +307,7 @@ h1,h2,h3,h4,.brand b,.foot .fb b,.band-in,.mani-text{word-spacing:.14em}.hand,.b
 .js .order-in>*{opacity:0;transform:translateY(20px);transition:opacity .15s,transform .15s}
 .js .order.open .order-in>*{transition:opacity .4s var(--ease),transform .5s var(--ease)}
 .js .order.open .order-in>*{opacity:1;transform:none}
-.js .order.open .order-in>*:nth-child(2){transition-delay:.12s}.js .order.open .order-in>*:nth-child(3){transition-delay:.18s}.js .order.open .order-in>*:nth-child(4){transition-delay:.22s}.js .order.open .order-in>*:nth-child(5){transition-delay:.25s}
+.js .order.open .order-in>*:nth-child(3){transition-delay:.12s}.js .order.open .order-in>*:nth-child(3){transition-delay:.18s}.js .order.open .order-in>*:nth-child(4){transition-delay:.22s}.js .order.open .order-in>*:nth-child(5){transition-delay:.25s}
 body.locked{overflow:hidden}
 
 .mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:80;display:none;grid-template-columns:1fr 1fr;gap:8px;transform:translateY(160%);transition:transform .3s var(--ease)}
@@ -319,7 +319,7 @@ body.locked{overflow:hidden}
 html:not(.first) .intro{display:none}.intro .lg{animation:introLogo .5s var(--ease) both}
 .js.first .intro{animation:introOut .55s var(--ease-io) .45s forwards}
 @keyframes introLogo{from{opacity:0;transform:scale(.92) rotate(-20deg)}}
-:root{--h0:.1s}html.first{--h0:.7s}
+:root{--h0:.1s}html.first{--h0:.85s}
 @keyframes introOut{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
 html:not(.js) .intro{display:none}
 
@@ -336,13 +336,96 @@ html:not(.js) .intro{display:none}
 }
 @keyframes up{to{opacity:1;transform:none}}@keyframes fade{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro{display:none}.js .mw{color:var(--ink)}.js .mw.hl{color:var(--red)}}
+
+/* metro che misura la pagina */
+.ruler{position:fixed;left:0;top:0;bottom:0;width:34px;z-index:55;pointer-events:none;background:linear-gradient(90deg,#E7C793,#D9B57A);border-right:1px solid rgba(20,18,16,.25);box-shadow:2px 0 10px rgba(20,18,16,.08)}
+.ruler::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(20,18,16,.55) 0 1px,transparent 1px 1%) 0 0/9px 100% no-repeat,repeating-linear-gradient(180deg,rgba(20,18,16,.75) 0 2px,transparent 2px 10%) 0 0/18px 100% no-repeat}
+.ruler i{position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(200,52,26,.85);transform-origin:50% 0;transform:scaleY(0);mix-blend-mode:multiply}
+.ruler b{position:absolute;left:38px;top:0;font:700 .72rem/1 var(--fd);background:var(--ink);color:var(--yellow);padding:5px 7px;border-radius:4px;white-space:nowrap;transform:translateY(-50%);letter-spacing:.04em}
+.ruler-m{position:absolute;left:0;right:0;bottom:-1px;height:6px;background:repeating-linear-gradient(90deg,rgba(20,18,16,.35) 0 1px,transparent 1px 10px) #E7C793;display:none}
+.ruler-m i{position:absolute;inset:0;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+@media (min-width:1100px){body{padding-left:34px}}
+@media (max-width:1099px){.ruler{display:none}.ruler-m{display:block}}
+
+/* lavagnetta */
+.chalk{padding:var(--g12) 0;background:var(--paper)}
+.board{position:relative;max-width:980px;margin:0 auto;background:radial-gradient(120% 90% at 30% 20%,#2C3B33,#1A231E 70%);color:#F3F1EA;border:16px solid #8A5A2E;border-radius:10px;box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),0 30px 60px -30px rgba(20,18,16,.6);padding:clamp(24px,5vw,56px)}
+.board::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 80%,rgba(255,255,255,.06),transparent 40%),radial-gradient(circle at 20% 60%,rgba(255,255,255,.05),transparent 35%);pointer-events:none}
+.board h2{font:600 clamp(2.6rem,6vw,4.6rem)/1 var(--fh);text-transform:none;letter-spacing:0;margin-bottom:var(--g2)}
+.board h2 u{text-decoration:none;background:linear-gradient(#F5C518,#F5C518) 0 92%/100% 4px no-repeat}
+.board ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.board li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 16px;align-items:baseline;font-family:var(--fh);font-size:clamp(1.35rem,2.4vw,1.75rem);border-bottom:1px dashed rgba(243,241,234,.25);padding-bottom:10px}
+.board .cn{font-weight:600;color:#FFE39A}.board .cd{color:rgba(243,241,234,.8);font-size:.82em}.board li b{font-weight:600}
+.board .tip{font-family:var(--fh);font-size:1.4rem;margin:var(--g3) 0 0;color:rgba(243,241,234,.85)}
+.board .chalk-mark{position:absolute;right:28px;top:22px;font:600 1.3rem var(--fh);color:#F5C518;transform:rotate(6deg)}
+.js .board li{opacity:0;transform:translateX(-10px);transition:opacity .4s var(--ease),transform .45s var(--ease)}
+.board.in li{opacity:1;transform:none}.board.in li:nth-child(2){transition-delay:.06s}.board.in li:nth-child(3){transition-delay:.11s}.board.in li:nth-child(4){transition-delay:.15s}.board.in li:nth-child(5){transition-delay:.18s}
+@media (max-width:640px){.board li{grid-template-columns:1fr auto}.board .cd{grid-column:1/-1;order:3}.board{border-width:10px}}
+
+/* pala di legno sotto la pizza al metro */
+.peel{position:relative;margin:var(--g3) 0 var(--g4);padding:10px 64px 10px 10px;border-radius:12px 40px 40px 12px;background:linear-gradient(180deg,#C99A5E,#A8773F);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18),0 10px 18px -10px rgba(20,18,16,.5)}
+.peel::before{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 3px,transparent 3px 22px);pointer-events:none}
+.peel::after{content:"";position:absolute;right:-90px;top:50%;width:110px;height:20px;transform:translateY(-50%);border-radius:10px;background:linear-gradient(180deg,#B9884C,#8E6232)}
+.peel .bar{margin:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 1px,transparent 1px 8.333%)}
+.peel .bar span{color:#4A3216;bottom:-30px}
+.calc{overflow:hidden}
+@media (max-width:640px){.peel{padding-right:40px}.peel::after{right:-60px;width:80px}}
+
+/* scontrino */
+.receipt{position:relative;background:#FFFDF8;color:var(--ink);padding:18px 18px 26px;margin-top:var(--g4);font:500 .95rem/1.5 var(--fb);font-variant-numeric:tabular-nums;box-shadow:0 14px 24px -16px rgba(20,18,16,.5);border:1px solid rgba(20,18,16,.08);-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 10px) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,transparent 0) bottom/16px 10px repeat-x;mask:linear-gradient(#000,#000) top/100% calc(100% - 10px) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,transparent 0) bottom/16px 10px repeat-x}
+.receipt .rh{text-align:center;font:700 .85rem/1.3 var(--fd);letter-spacing:.08em;padding-bottom:10px;border-bottom:1px dashed rgba(20,18,16,.35);margin-bottom:8px}.receipt .rh small{display:block;font:500 .75rem var(--fb);letter-spacing:0}
+.receipt .rl{display:flex;justify-content:space-between;gap:12px}
+.receipt .rt{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed rgba(20,18,16,.35);margin-top:8px;padding-top:10px}
+.receipt .rt b{font:700 clamp(1.9rem,4vw,2.6rem)/1 var(--fd);color:var(--red)}
+.receipt .rf{font-size:.78rem;color:var(--mute);text-align:center;margin:10px 0 0}
+.js .receipt.print{animation:print .35s var(--ease)}
+@keyframes print{from{clip-path:inset(0 0 100% 0);transform:translateY(-10px)}to{clip-path:inset(0);transform:none}}
+#mt{font-weight:700}
+
+/* tessera timbri */
+.card{background:#FFFDF8;color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px;box-shadow:6px 6px 0 var(--ink)}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}.card-h b{font:700 .95rem/1.1 var(--fd);text-transform:uppercase}
+.card-n{font:600 .78rem var(--fb);white-space:nowrap}
+.cells{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.cells li{position:relative;aspect-ratio:1;border:2px dashed rgba(20,18,16,.3);border-radius:50%;display:grid;place-items:center}
+.cells .sl{font:600 .58rem/1.05 var(--fb);text-align:center;color:var(--mute);padding:2px}
+.st-ink{position:absolute;inset:-3px;opacity:0;transform:scale(1.35) rotate(-25deg);transition:opacity .15s,transform .3s var(--ease)}
+.st-ink{color:var(--red)}.st-ink svg{width:100%;height:100%;opacity:.9}
+.cells li.on .st-ink{opacity:1;transform:rotate(var(--rot,-8deg))}.cells li.on .sl{opacity:0}
+.card-f{margin:10px 0 0;font-size:.8rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px}
+.card-go{font-weight:700;color:var(--red);text-decoration:none;display:none}.card.full .card-go{display:inline}.card.full .msg{display:none}
+.card-mini{position:fixed;left:50px;bottom:18px;z-index:58;width:290px;transform:translateY(140%);transition:transform .3s var(--ease)}.card-mini.show{transform:none}
+.card-mini .sl{font-size:0}.card-mini{width:236px;padding:10px 12px;box-shadow:4px 4px 0 var(--ink)}.card-mini .card-h{margin-bottom:6px}.card-mini .card-h b{font-size:.72rem}.card-mini .cells{gap:6px}.card-mini .card-f{display:none}.card-mini.full .card-f{display:flex}
+@media (max-width:1099px){.card-mini{display:none}}
+.final .card{max-width:520px;margin:var(--g6) auto 0;text-align:left;transform:rotate(-1.5deg)}
+.final .card .cells{gap:12px}.final .card .sl{font-size:.68rem}
+
+/* cartone da asporto: sipario e pannello */
+.box-lid{position:fixed;inset:0;z-index:300;display:grid;place-items:center;pointer-events:none;background:linear-gradient(180deg,#CFA772,#B98C55);perspective:1400px}
+.box-lid::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 2px,transparent 2px 7px)}
+.box-lid .print{position:relative;text-align:center;color:#3B2410}.box-lid .lg{width:130px;height:130px;margin:0 auto 14px}
+.box-lid .print b{display:block;font:700 2rem/1 var(--fd);text-transform:uppercase;word-spacing:.14em}.box-lid .print span{font:600 1.7rem var(--fh);color:#8E2A12}
+html:not(.first) .box-lid{display:none}
+.js.first .box-lid{transform-origin:50% 0;animation:lidOpen .6s var(--ease-io) .5s forwards}
+@keyframes lidOpen{to{transform:perspective(1400px) rotateX(78deg) translateY(-30%);opacity:0;visibility:hidden}}
+html:not(.js) .box-lid{display:none}
+.order{background:linear-gradient(180deg,#CFA772,#B98C55)}
+.order::before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 2px,transparent 2px 7px);pointer-events:none}
+.order-in{position:relative;background:var(--yellow);border-radius:14px;padding:clamp(22px,4vw,40px);box-shadow:inset 0 0 0 10px rgba(255,255,255,.18),0 30px 60px -30px rgba(59,36,16,.7)}
+.order .box-print{position:absolute;right:20px;top:-18px;background:#3B2410;color:#F5C518;font:600 1.2rem var(--fh);padding:4px 12px;border-radius:6px;transform:rotate(3deg)}
+.js .order.open .order-in{animation:boxIn .45s var(--ease) both}
+@keyframes boxIn{from{transform:translateY(24px) scale(.97)}}
+@media (prefers-reduced-motion:reduce){.box-lid{display:none}.ruler i,.ruler-m i{transition:none}}
+html.calm .box-lid{display:none}html.calm .board li{opacity:1!important;transform:none!important}
+
 html.calm *,html.calm *::before,html.calm *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 html.calm [data-r],html.calm .hero .fade,html.calm .hero .rise,html.calm .pizzas,html.calm .hero h1 .l1,html.calm .hero .rot{opacity:1!important;transform:none!important;clip-path:none!important}
 html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!important}html.calm .intro{display:none}
 </style>
 </head>
 <body>
-<div class="intro" aria-hidden="true"><svg class="lg logo" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" class="lp"/><circle class="ld" cx="50.0" cy="8.0" r="2.6" style="--i:0"/><circle class="ld" cx="60.9" cy="9.4" r="2.6" style="--i:1"/><circle class="ld" cx="71.0" cy="13.6" r="2.6" style="--i:2"/><circle class="ld" cx="79.7" cy="20.3" r="2.6" style="--i:3"/><circle class="ld" cx="86.4" cy="29.0" r="2.6" style="--i:4"/><circle class="ld" cx="90.6" cy="39.1" r="2.6" style="--i:5"/><circle class="ld" cx="92.0" cy="50.0" r="2.6" style="--i:6"/><circle class="ld" cx="90.6" cy="60.9" r="2.6" style="--i:7"/><circle class="ld" cx="86.4" cy="71.0" r="2.6" style="--i:8"/><circle class="ld" cx="79.7" cy="79.7" r="2.6" style="--i:9"/><circle class="ld" cx="71.0" cy="86.4" r="2.6" style="--i:10"/><circle class="ld" cx="60.9" cy="90.6" r="2.6" style="--i:11"/><circle class="ld" cx="50.0" cy="92.0" r="2.6" style="--i:12"/><circle class="ld" cx="39.1" cy="90.6" r="2.6" style="--i:13"/><circle class="ld" cx="29.0" cy="86.4" r="2.6" style="--i:14"/><circle class="ld" cx="20.3" cy="79.7" r="2.6" style="--i:15"/><circle class="ld" cx="13.6" cy="71.0" r="2.6" style="--i:16"/><circle class="ld" cx="9.4" cy="60.9" r="2.6" style="--i:17"/><circle class="ld" cx="8.0" cy="50.0" r="2.6" style="--i:18"/><circle class="ld" cx="9.4" cy="39.1" r="2.6" style="--i:19"/><circle class="ld" cx="13.6" cy="29.0" r="2.6" style="--i:20"/><circle class="ld" cx="20.3" cy="20.3" r="2.6" style="--i:21"/><circle class="ld" cx="29.0" cy="13.6" r="2.6" style="--i:22"/><circle class="ld" cx="39.1" cy="9.4" r="2.6" style="--i:23"/><circle cx="50" cy="50" r="35" class="lr"/><text x="50" y="63" class="lm">M</text></svg></div>
+<div class="box-lid" aria-hidden="true"><div class="print"><svg class="lg logo" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" class="lp"/><circle class="ld" cx="50.0" cy="8.0" r="2.6" style="--i:0"/><circle class="ld" cx="60.9" cy="9.4" r="2.6" style="--i:1"/><circle class="ld" cx="71.0" cy="13.6" r="2.6" style="--i:2"/><circle class="ld" cx="79.7" cy="20.3" r="2.6" style="--i:3"/><circle class="ld" cx="86.4" cy="29.0" r="2.6" style="--i:4"/><circle class="ld" cx="90.6" cy="39.1" r="2.6" style="--i:5"/><circle class="ld" cx="92.0" cy="50.0" r="2.6" style="--i:6"/><circle class="ld" cx="90.6" cy="60.9" r="2.6" style="--i:7"/><circle class="ld" cx="86.4" cy="71.0" r="2.6" style="--i:8"/><circle class="ld" cx="79.7" cy="79.7" r="2.6" style="--i:9"/><circle class="ld" cx="71.0" cy="86.4" r="2.6" style="--i:10"/><circle class="ld" cx="60.9" cy="90.6" r="2.6" style="--i:11"/><circle class="ld" cx="50.0" cy="92.0" r="2.6" style="--i:12"/><circle class="ld" cx="39.1" cy="90.6" r="2.6" style="--i:13"/><circle class="ld" cx="29.0" cy="86.4" r="2.6" style="--i:14"/><circle class="ld" cx="20.3" cy="79.7" r="2.6" style="--i:15"/><circle class="ld" cx="13.6" cy="71.0" r="2.6" style="--i:16"/><circle class="ld" cx="9.4" cy="60.9" r="2.6" style="--i:17"/><circle class="ld" cx="8.0" cy="50.0" r="2.6" style="--i:18"/><circle class="ld" cx="9.4" cy="39.1" r="2.6" style="--i:19"/><circle class="ld" cx="13.6" cy="29.0" r="2.6" style="--i:20"/><circle class="ld" cx="20.3" cy="20.3" r="2.6" style="--i:21"/><circle class="ld" cx="29.0" cy="13.6" r="2.6" style="--i:22"/><circle class="ld" cx="39.1" cy="9.4" r="2.6" style="--i:23"/><circle cx="50" cy="50" r="35" class="lr"/><text x="50" y="63" class="lm">M</text></svg><b>Mani in Pasta</b><span>da Giò · Borello</span></div></div>
+<div class="ruler" aria-hidden="true"><i id="rul"></i><b id="rulb">0 cm</b></div>
 <a class="skip" href="#menu">Vai al menu</a>
 
 <div class="info-bar"><div class="wrap">
@@ -351,6 +434,7 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
 </div></div>
 
 <header class="hdr" id="hdr">
+ <div class="ruler-m" aria-hidden="true"><i id="rulm"></i></div>
  <div class="wrap">
   <nav class="nav" aria-label="Sezioni"><a href="#storia" data-nav>Chi siamo</a><a href="#menu" data-nav>Menu</a><a href="#metro" data-nav>Al metro</a><a href="#visita" data-nav>Orari</a></nav>
   <a class="brand" href="#top" aria-label="Mani in Pasta da Giò, torna all'inizio"><svg class="lg logo" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" class="lp"/><circle class="ld" cx="50.0" cy="8.0" r="2.6" style="--i:0"/><circle class="ld" cx="60.9" cy="9.4" r="2.6" style="--i:1"/><circle class="ld" cx="71.0" cy="13.6" r="2.6" style="--i:2"/><circle class="ld" cx="79.7" cy="20.3" r="2.6" style="--i:3"/><circle class="ld" cx="86.4" cy="29.0" r="2.6" style="--i:4"/><circle class="ld" cx="90.6" cy="39.1" r="2.6" style="--i:5"/><circle class="ld" cx="92.0" cy="50.0" r="2.6" style="--i:6"/><circle class="ld" cx="90.6" cy="60.9" r="2.6" style="--i:7"/><circle class="ld" cx="86.4" cy="71.0" r="2.6" style="--i:8"/><circle class="ld" cx="79.7" cy="79.7" r="2.6" style="--i:9"/><circle class="ld" cx="71.0" cy="86.4" r="2.6" style="--i:10"/><circle class="ld" cx="60.9" cy="90.6" r="2.6" style="--i:11"/><circle class="ld" cx="50.0" cy="92.0" r="2.6" style="--i:12"/><circle class="ld" cx="39.1" cy="90.6" r="2.6" style="--i:13"/><circle class="ld" cx="29.0" cy="86.4" r="2.6" style="--i:14"/><circle class="ld" cx="20.3" cy="79.7" r="2.6" style="--i:15"/><circle class="ld" cx="13.6" cy="71.0" r="2.6" style="--i:16"/><circle class="ld" cx="9.4" cy="60.9" r="2.6" style="--i:17"/><circle class="ld" cx="8.0" cy="50.0" r="2.6" style="--i:18"/><circle class="ld" cx="9.4" cy="39.1" r="2.6" style="--i:19"/><circle class="ld" cx="13.6" cy="29.0" r="2.6" style="--i:20"/><circle class="ld" cx="20.3" cy="20.3" r="2.6" style="--i:21"/><circle class="ld" cx="29.0" cy="13.6" r="2.6" style="--i:22"/><circle class="ld" cx="39.1" cy="9.4" r="2.6" style="--i:23"/><circle cx="50" cy="50" r="35" class="lr"/><text x="50" y="63" class="lm">M</text></svg><b>Mani in Pasta<small>da Giò</small></b></a>
@@ -380,7 +464,7 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
  <div class="wrap">
   <h2 class="kick" style="color:var(--red)" id="storia-t">Chi siamo</h2>
   <div class="mani-grid">
-   <div><p class="mani-text" id="manifesto"><span class="mw">Mani</span> <span class="mw">in</span> <span class="mw">Pasta</span> <span class="mw">è</span> <span class="mw">la</span> <span class="mw">pizzeria</span> <span class="mw">di</span> <span class="mw hl">Borello,</span> <span class="mw">la</span> <span class="mw">frazione</span> <span class="mw">di</span> <span class="mw">Cesena</span> <span class="mw">dove</span> <span class="mw">è</span> <span class="mw">nato</span> <span class="mw">il</span> <span class="mw">primo</span> <span class="mw">fans</span> <span class="mw">club</span> <span class="mw">italiano</span> <span class="mw">di</span> <span class="mw">Marco</span> <span class="mw hl">Pantani.</span> <span class="mw">Qui</span> <span class="mw">la</span> <span class="mw">pizza</span> <span class="mw">segue</span> <span class="mw">la</span> <span class="mw">tradizione</span> <span class="mw hl">napoletana.</span> <span class="mw">La</span> <span class="mw">trovi</span> <span class="mw">tonda,</span> <span class="mw">al</span> <span class="mw hl">metro</span> <span class="mw">o</span> <span class="mw">maxi</span> <span class="mw">da</span> <span class="mw">45</span> <span class="mw">centimetri,</span> <span class="mw">da</span> <span class="mw">mangiare</span> <span class="mw">in</span> <span class="mw">sala,</span> <span class="mw">da</span> <span class="mw">portare</span> <span class="mw">via</span> <span class="mw">o</span> <span class="mw">a</span> <span class="mw">domicilio.</span></p>
+   <div><p class="mani-text" id="manifesto"><span class="mw">Mani</span> <span class="mw">in</span> <span class="mw">Pasta</span> <span class="mw">è</span> <span class="mw">la</span> <span class="mw">pizzeria</span> <span class="mw">di</span> <span class="mw hl">Giò</span> <span class="mw">a</span> <span class="mw">Borello</span> <span class="mw">di</span> <span class="mw">Cesena,</span> <span class="mw">in</span> <span class="mw">Via</span> <span class="mw">Tarantelli</span> <span class="mw">43.</span> <span class="mw">Qui</span> <span class="mw">la</span> <span class="mw">pizza</span> <span class="mw">segue</span> <span class="mw">la</span> <span class="mw">tradizione</span> <span class="mw hl">napoletana.</span> <span class="mw">La</span> <span class="mw">trovi</span> <span class="mw">tonda,</span> <span class="mw">al</span> <span class="mw hl">metro</span> <span class="mw">o</span> <span class="mw">maxi</span> <span class="mw">da</span> <span class="mw">45</span> <span class="mw">centimetri,</span> <span class="mw">da</span> <span class="mw">mangiare</span> <span class="mw">in</span> <span class="mw">sala,</span> <span class="mw">da</span> <span class="mw">portare</span> <span class="mw">via</span> <span class="mw">o</span> <span class="mw">a</span> <span class="mw">domicilio.</span></p>
     <div class="facts"><div class="fact" data-r><b>56+</b><span>pizze in carta</span></div><div class="fact" data-r style="--d:.1s"><b>45 cm</b><span>la maxi tonda</span></div><div class="fact" data-r style="--d:.2s"><b>1 metro</b><span>ogni due persone</span></div></div>
    </div>
    <div class="mani-ph">
@@ -397,6 +481,15 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
   <div class="ways-h"><h2 id="ways-t" data-r>Come la vuoi <em>stasera?</em></h2><p data-r style="--d:.1s">Tre modi per avere la pizza di Giò. Il forno si accende alle 17:30.</p></div>
   <div class="ways-grid"><article class="way" data-r style="--d:0.0s"><span class="num">01</span><div><h3>In pizzeria</h3><p>Siediti nella sala di Via Tarantelli, aperta la sera dalle 17:30.</p><a class="tlink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Ezio+Tarantelli+43+Borello+Cesena" target="_blank" rel="noopener noreferrer"><span>Come arrivare</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div></article><article class="way" data-r style="--d:0.1s"><span class="num">02</span><div><h3>Da asporto</h3><p>Chiami, scegli dal menu e passi a ritirare quando è pronta.</p><a class="tlink" href="tel:+393442748117"><span>Chiama il 344 274 8117</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div></article><article class="way" data-r style="--d:0.2s"><span class="num">03</span><div><h3>A domicilio</h3><p>Ordini online su Booxit e la pizza arriva a casa.</p><a class="tlink" href="https://booxit.it/app/maniinpastaborello/menu" target="_blank" rel="noopener noreferrer"><span>Ordina online</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div></article></div>
  </div>
+</section>
+
+<section class="chalk" id="lavagna" aria-labelledby="lav-t">
+ <div class="wrap"><div class="board" data-r>
+  <span class="chalk-mark" aria-hidden="true">appena arrivate!</span>
+  <h2 id="lav-t">Le <u>novità</u> in carta</h2>
+  <ul><li><span class="cn">La Calabrese</span><span class="cd">pomodoro, mozzarella, salsiccia, gorgonzola, rucola, nduja</span><b>10,00 €</b></li><li><span class="cn">Sprint</span><span class="cd">bufala, crudo, rucola, grana, pomodorini</span><b>12,00 €</b></li><li><span class="cn">Strambalata</span><span class="cd">vellutata di pomodori gialli, capocollo di Martina Franca, stracciatella</span><b>12,00 €</b></li><li><span class="cn">Autunno</span><span class="cd">crema di zucca, gorgonzola, porcini, speck</span><b>11,00 €</b></li><li><span class="cn">Kebab</span><span class="cd">kebab, mozzarella, patatine, cipolla</span><b>11,00 €</b></li></ul>
+  <p class="tip">Le promozioni della settimana te le dice Giò al telefono: 344 274 8117.</p>
+ </div></div>
 </section>
 
 <section class="menu" id="menu" aria-labelledby="menu-t">
@@ -423,9 +516,15 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
      <div><label id="lp">Persone</label><div class="step"><button type="button" id="minus" aria-label="Una persona in meno">−</button><output id="pp" aria-labelledby="lp" aria-live="polite">4</output><button type="button" id="plus" aria-label="Una persona in più">+</button></div></div>
      <div style="flex:1;min-width:200px"><label for="tipo">Pizza</label><select id="tipo"><option value="13">Pomodoro · 13 € il mezzo metro</option><option value="16" selected>Margherita · 16 € il mezzo metro</option><option value="22">Farcita, 2 gusti · 22 € il mezzo metro</option><option value="25">Super farcita, 8 farciture scelte da Giò · 25 € il mezzo metro</option></select></div>
     </div>
-    <div class="bar" aria-hidden="true"><i id="bar"></i><span style="left:16.66%">1 m</span><span style="left:33.33%">2 m</span><span style="left:50%">3 m</span><span style="left:66.66%">4 m</span><span style="left:83.33%">5 m</span></div>
-    <div class="res" aria-live="polite"><div><small>Vi serve</small><b id="mt">2 metri</b></div><div style="text-align:right"><small>Circa</small><b class="eur" id="eur">64 €</b></div></div>
-    <p class="fine">Esempio fatto sui prezzi del menu: il conto giusto lo fa il locale al telefono.</p>
+    <div class="peel"><div class="bar" aria-hidden="true"><i id="bar"></i><span style="left:16.66%">1 m</span><span style="left:33.33%">2 m</span><span style="left:50%">3 m</span><span style="left:66.66%">4 m</span><span style="left:83.33%">5 m</span></div></div>
+    <div class="receipt" id="rcpt" aria-live="polite">
+     <div class="rh">MANI IN PASTA DA GIÒ<small>Via Tarantelli 43 · Borello</small></div>
+     <div class="rl"><span>Persone</span><span id="r-pp">4</span></div>
+     <div class="rl"><span>Pizza al metro</span><span id="mt">2 metri</span></div>
+     <div class="rl"><span id="r-tipo">Margherita</span><span id="r-calc">4 × ½ m · 16 €</span></div>
+     <div class="rt"><span>Totale circa</span><b id="eur">64 €</b></div>
+     <p class="rf">Esempio sui prezzi del menu: il conto giusto lo fa il locale.</p>
+    </div>
    </div>
    <ul class="mtable" data-r><li class="th"><span>Tipo</span><span>½ metro</span><span>1 metro</span></li><li><span>Pomodoro</span><b>13 €</b><i>26 €</i></li><li><span>Margherita</span><b>16 €</b><i>32 €</i></li><li><span>Farcita, 2 gusti</span><b>22 €</b><i>44 €</i></li><li><span>Super farcita, 8 farciture scelte da Giò</span><b>25 €</b><i>50 €</i></li></ul>
   </div>
@@ -439,7 +538,7 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
  <div class="wrap"><div class="gal-prog"><i id="gprog"></i></div></div>
 </section>
 
-<section class="rate" aria-label="Voto su Google">
+<section class="rate" id="recensioni" aria-label="Voto su Google">
  <div class="wrap">
   <div class="rate-n"><b>4,5</b><div><span class="stars" aria-hidden="true">★★★★<span class="half">★</span></span><p>su 5 · 32 recensioni su Google</p></div></div>
   <p class="q">Hai mangiato da noi? Lascia la tua recensione o leggi quelle degli altri.</p>
@@ -468,6 +567,7 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
   <h2 id="final-t" data-r>Stasera <span class="o">pizza?</span></h2>
   <p data-r style="--d:.1s">Il forno si accende alle 17:30. Chiama, ordina online o passa in Via Tarantelli.</p>
   <div class="ctas" data-r style="--d:.2s"><a class="btn btn-red" href="tel:+393442748117"><span>Chiama il 344 274 8117</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a><a class="btn btn-ink" href="#ordina" data-panel aria-controls="ordina"><span>Ordina o prenota</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div>
+  <div class="card card-big" aria-label="Tessera del giro del sito"><div class="card-h"><b>La tessera di Mani in Pasta</b><span class="card-n"><span class="cnt">0</span>/6 timbri</span></div><ol class="cells"><li data-stamp="0" data-for="storia"><span class="sl">Chi siamo</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="1" data-for="lavagna"><span class="sl">Novità</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="2" data-for="menu"><span class="sl">Menu</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="3" data-for="metro"><span class="sl">Al metro</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="4" data-for="foto"><span class="sl">Foto</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="5" data-for="visita"><span class="sl">Orari</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li></ol><p class="card-f"><span class="msg">Scorri il sito: ogni sezione vale un timbro.</span><a class="card-go" href="#ordina" data-panel>Ultimo timbro: ordina →</a></p></div>
  </div>
 </section>
 </main>
@@ -475,6 +575,7 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
 <section class="order" id="ordina" role="dialog" aria-modal="true" aria-labelledby="ord-t">
  <button type="button" class="close" id="oclose" aria-label="Chiudi">×</button>
  <div class="order-in">
+  <span class="box-print" aria-hidden="true">Mani in Pasta · da asporto</span>
   <h2 id="ord-t">Ordina o prenota</h2>
   <p class="st" id="ord-st">Aperti dalle 17:30 alle 21:00, mercoledì chiuso.</p>
   <div class="tels"><a class="tel main" href="tel:+393442748117"><b>344 274 8117</b><span>Asporto o tavolo</span></a><a class="tel" href="tel:+393924779431"><b>392 477 9431</b><span>Secondo numero</span></a></div>
@@ -495,6 +596,7 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
  </div>
 </footer>
 
+<aside class="card card-mini" aria-label="Tessera del giro del sito"><div class="card-h"><b>La tessera di Mani in Pasta</b><span class="card-n"><span class="cnt">0</span>/6 timbri</span></div><ol class="cells"><li data-stamp="0" data-for="storia"><span class="sl">Chi siamo</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="1" data-for="lavagna"><span class="sl">Novità</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="2" data-for="menu"><span class="sl">Menu</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="3" data-for="metro"><span class="sl">Al metro</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="4" data-for="foto"><span class="sl">Foto</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li><li data-stamp="5" data-for="visita"><span class="sl">Orari</span><i class="st-ink" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="20" y="25.5" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="Clash Display,sans-serif">M</text></svg></i></li></ol><p class="card-f"><span class="msg">Scorri il sito: ogni sezione vale un timbro.</span><a class="card-go" href="#ordina" data-panel>Ultimo timbro: ordina →</a></p></aside>
 <div class="mbar" id="mbar"><a class="btn btn-red" href="tel:+393442748117"><span>Chiama</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a><a class="btn btn-ink" href="#ordina" data-panel aria-controls="ordina"><span>Ordina</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div>
 
 <script>
@@ -543,7 +645,17 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
    var menuEnd=document.getElementById('metro').getBoundingClientRect().top<vh*.4;if(menuEnd)cm=-1;
    if(cm!==lastMi){lastMi=cm;mi.forEach(function(a,i){a.classList.toggle('on',i===cm)});if(cm>=0&&innerWidth<=1020){ul.scrollTo({left:mi[cm].parentNode.offsetLeft-20,behavior:c?'auto':'smooth'})}}
   }
-  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+  var rul=document.getElementById('rul'),rulb=document.getElementById('rulb'),rulm=document.getElementById('rulm');
+  var stampSecs=[].slice.call(document.querySelectorAll('.card-big [data-for]')).map(function(li){return document.getElementById(li.dataset.for)});
+  var got={};try{got=JSON.parse(sessionStorage.getItem('mip-st')||'{}')}catch(e){}
+  var cards=[].slice.call(document.querySelectorAll('.card')),mini=document.querySelector('.card-mini'),fin=document.querySelector('.final');
+  function paint(){var n=0;cards.forEach(function(c){[].forEach.call(c.querySelectorAll('[data-stamp]'),function(li){var on=!!got[li.dataset.stamp];li.classList.toggle('on',on);li.style.setProperty('--rot',(li.dataset.stamp*37%30-15)+'deg')})});for(var k in got)n++;cards.forEach(function(c){c.querySelector('.cnt').textContent=n;c.classList.toggle('full',n>=6)})}
+  paint();
+  function upd2(){var y=scrollY,vh=innerHeight,max=document.documentElement.scrollHeight-vh,pr=max>0?Math.min(1,y/max):0;
+   rul.style.transform='scaleY('+pr.toFixed(4)+')';rulm.style.transform='scaleX('+pr.toFixed(4)+')';var cm=Math.round(pr*100);rulb.textContent=cm>=100?'1 metro!':cm+' cm';rulb.style.top=Math.max(12,Math.min(vh-12,pr*vh))+'px';
+   var ch=false;stampSecs.forEach(function(sec,i){if(sec&&!got[i]&&sec.getBoundingClientRect().top<vh*.5){got[i]=1;ch=true}});if(ch){paint();try{sessionStorage.setItem('mip-st',JSON.stringify(got))}catch(e){}}
+   var fr=fin.getBoundingClientRect();mini.classList.toggle('show',y>vh*.9&&fr.top>vh*.7);}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){upd();upd2()})}},{passive:true});addEventListener('resize',function(){upd();upd2()});upd();upd2();
   if(reducedMotion)words.forEach(function(w){w.classList.add('lit')});
  });
 
@@ -564,9 +676,11 @@ html.calm .mw{color:var(--ink)!important}html.calm .mw.hl{color:var(--red)!impor
  });
 
  run(function(){
-  var p=4,out=document.getElementById('pp'),sel=document.getElementById('tipo'),mt=document.getElementById('mt'),eur=document.getElementById('eur'),bar=document.getElementById('bar');
+  var p=4,out=document.getElementById('pp'),sel=document.getElementById('tipo'),mt=document.getElementById('mt'),eur=document.getElementById('eur'),bar=document.getElementById('bar'),rc=document.getElementById('rcpt'),first=true;
   function f(n){return (Math.round(n*10)/10).toString().replace('.',',')}
-  function upd(){var metri=p/2;out.textContent=p;mt.textContent=f(metri)+(metri===1?' metro':' metri');eur.textContent=f(p*(+sel.value))+' €';bar.style.clipPath='inset(0 '+(100-Math.min(100,metri/6*100)).toFixed(2)+'% 0 0 round 6px)'}
+  function upd(){var metri=p/2,o=sel.options[sel.selectedIndex];out.textContent=p;mt.textContent=f(metri)+(metri===1?' metro':' metri');eur.textContent=f(p*(+sel.value))+' €';
+   document.getElementById('r-pp').textContent=p;document.getElementById('r-tipo').textContent=o.text.split(' · ')[0];document.getElementById('r-calc').textContent=p+' × ½ m · '+sel.value+' €';
+   if(!first&&!calm()){rc.classList.remove('print');void rc.offsetWidth;rc.classList.add('print')}first=false;bar.style.clipPath='inset(0 '+(100-Math.min(100,metri/6*100)).toFixed(2)+'% 0 0 round 6px)'}
   document.getElementById('minus').addEventListener('click',function(){if(p>1){p--;upd()}});
   document.getElementById('plus').addEventListener('click',function(){if(p<12){p++;upd()}});
   sel.addEventListener('change',upd);upd();
