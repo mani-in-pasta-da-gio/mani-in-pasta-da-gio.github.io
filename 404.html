@@ -20,7 +20,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;display=swap"><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;display=swap">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;display=swap" media="print" onload="this.media=&#39;all&#39;"><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap" media="print" onload="this.media=&#39;all&#39;"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;display=swap" media="print" onload="this.media=&#39;all&#39;"><noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;display=swap"><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;display=swap"></noscript>
 <style>
 :root{--paper:#F4EEE3;--paper2:#EADFCB;--ink:#141210;--ink2:#2A2622;--mute:#5E574D;--yellow:#F5C518;--red:#C8341A;--red2:#A92A13;--gold:#D9B25A;
 --fd:'Clash Display','Arial Narrow',Impact,sans-serif;--fb:'General Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--fh:'Caveat','Segoe Print',cursive;
@@ -54,12 +54,12 @@ p{margin:0 0 var(--g2)}
 
 .logo{width:100%;height:100%;overflow:visible}.lp{fill:var(--ink)}.lr{fill:none;stroke:var(--gold);stroke-width:1.5;opacity:.8}
 .ld{fill:#FFE39A}.lm{font:700 40px var(--fd);fill:var(--gold);text-anchor:middle}
-@media (prefers-reduced-motion:no-preference){.logo .ld{animation:bulb 2.6s linear infinite;animation-delay:calc(var(--i)*-.108s)}}
+@media (prefers-reduced-motion:no-preference){.brand .logo .ld,.box-lid .logo .ld{animation:bulb 2.6s linear infinite;animation-delay:calc(var(--i)*-.108s)}}
 @keyframes bulb{0%,100%{fill:#FFE39A}8%{fill:#fff}16%{fill:#FFE39A}}
 
 .info-bar{background:var(--ink);color:var(--paper);font-size:.8rem;letter-spacing:.04em}
 .info-bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px}
-.info-bar a{text-decoration:none;white-space:nowrap}.info-bar .sep{opacity:.35;margin:0 10px}
+.info-bar a{text-decoration:none;white-space:nowrap;display:inline-block;padding:9px 0}.info-bar .sep{opacity:.35;margin:0 10px}
 .live{display:inline-flex;align-items:center;gap:8px;min-width:0;overflow:hidden}.live>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.live i{flex:none;width:8px;height:8px;border-radius:50%;background:#8a8378}
 .live.is-open i{background:#56D37F;box-shadow:0 0 0 0 rgba(86,211,127,.6)}
 @media (prefers-reduced-motion:no-preference){.live.is-open i{animation:pulse 2s infinite}}
@@ -260,7 +260,7 @@ h1,h2,h3,h4,.brand b,.foot .fb b,.band-in,.mani-text{word-spacing:.14em}.hand,.b
 .vcard h3{font-size:1.5rem;color:var(--yellow)}
 .hours{list-style:none;margin:0;padding:0}.hours li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(244,238,227,.12);font-weight:500}
 .hours li b{font-weight:500;color:rgba(244,238,227,.75);white-space:nowrap}.hours li.today,.hours li.today b{color:var(--yellow)}
-.vcard .big{font:600 clamp(1.4rem,2.4vw,1.85rem)/1.15 var(--fd);text-decoration:none;white-space:nowrap}
+.vcard .big{padding:6px 0;font:600 clamp(1.4rem,2.4vw,1.85rem)/1.15 var(--fd);text-decoration:none;white-space:nowrap}
 .vcard .addr{white-space:normal;margin:0}
 .vcard .muted{color:rgba(244,238,227,.6);margin:0}
 .vcard .btn{align-self:flex-start}
@@ -318,7 +318,7 @@ body.locked{overflow:hidden}
 html:not(.first) .intro{display:none}.intro .lg{animation:introLogo .5s var(--ease) both}
 .js.first .intro{animation:introOut .55s var(--ease-io) .45s forwards}
 @keyframes introLogo{from{opacity:0;transform:scale(.92) rotate(-20deg)}}
-:root{--h0:.1s}html.first{--h0:.85s}
+:root{--h0:.1s}html.first{--h0:.35s}
 @keyframes introOut{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
 html:not(.js) .intro{display:none}
 
@@ -335,6 +335,29 @@ html:not(.js) .intro{display:none}
 }
 @keyframes up{to{opacity:1;transform:none}}@keyframes fade{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro{display:none}.js .mw{color:var(--ink)}.js .mw.hl{color:var(--red)}}
+
+
+/* icone su misura */
+.icn{width:48px;height:48px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;overflow:visible;flex:none}
+.icn .ib{fill:var(--yellow);stroke:none}
+.js .icn .d{stroke-dasharray:1 1;stroke-dashoffset:1}
+.js .in .icn .d,.js .icn.drawn .d{animation:draw .9s cubic-bezier(.77,0,.175,1) forwards}
+html.calm .icn .d{stroke-dashoffset:0!important;animation:none!important}
+@keyframes draw{to{stroke-dashoffset:0}}
+.js .icn .ib{opacity:0;transition:opacity .3s .7s}.js .in .icn .ib,.js .icn.drawn .ib,html.calm .icn .ib{opacity:1}
+@media (prefers-reduced-motion:no-preference){.in .icn .ib{animation:bulbI 2.4s ease-in-out infinite 1.2s}.in .icn .ib:nth-of-type(2n){animation-delay:1.8s}}
+@keyframes bulbI{50%{fill:#fff;filter:drop-shadow(0 0 3px #FFC94D)}}
+@media (prefers-reduced-motion:reduce){.js .icn .d{stroke-dashoffset:0;animation:none}.js .icn .ib{opacity:1}}
+.way{position:relative}.way-i{position:absolute;right:28px;top:26px;width:64px;height:64px;color:var(--paper)}
+.fact .icn{width:40px;height:40px;color:var(--red);margin-bottom:10px}
+.vcard h3{display:flex;align-items:center;gap:12px}.vcard h3 .icn{width:38px;height:38px;color:var(--paper)}
+.kick-i::before{display:none}.kick-i .icn{width:30px;height:30px}
+@media (hover:hover) and (pointer:fine){.way:hover .way-i{transform:rotate(-6deg) scale(1.06)}.way-i{transition:transform .25s var(--ease)}}
+
+/* pulsante lingua */
+.lang{display:inline-flex;align-items:center;gap:2px;margin-left:14px;border:1px solid rgba(244,238,227,.35);border-radius:99px;padding:2px;background:none;color:inherit;font:600 .72rem/1 var(--fb);letter-spacing:.06em;cursor:pointer;min-height:34px}
+.lang span{padding:5px 8px;border-radius:99px;transition:background .2s,color .2s}.lang .on{background:var(--yellow);color:var(--ink)}
+.mnav .lang{position:absolute;left:28px;top:20px;margin:0;font-size:.9rem;min-height:44px;padding:4px}.mnav .lang span{padding:8px 12px}
 
 /* metro che misura la pagina */
 .ruler{position:fixed;left:0;top:0;bottom:0;width:34px;z-index:55;pointer-events:none;background:linear-gradient(90deg,#E7C793,#D9B57A);border-right:1px solid rgba(20,18,16,.25);box-shadow:2px 0 10px rgba(20,18,16,.08)}
@@ -383,7 +406,7 @@ html:not(.js) .intro{display:none}
 
 /* tessera timbri */
 .card{background:#FFFDF8;color:var(--ink);border:2px solid var(--ink);border-radius:14px;padding:14px;box-shadow:6px 6px 0 var(--ink)}
-.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}.card-h b{font:700 .95rem/1.1 var(--fd);text-transform:uppercase}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}.card-h b{font:700 .95rem/1.1 var(--fd);text-transform:uppercase;word-spacing:.14em}
 .card-n{font:600 .78rem var(--fb);white-space:nowrap}
 .cells{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
 .cells li{position:relative;aspect-ratio:1;border:2px dashed rgba(20,18,16,.3);border-radius:50%;display:grid;place-items:center}
